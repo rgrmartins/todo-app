@@ -7,10 +7,14 @@ const express = require('express')
 //criando uma instancia do server (express)
 const server = express()
 
+//permite CORS
+const allowCors = require('./cors')
+
 //aplicando alguns middleware
 //configurando que a cada chegada de requisição com irá fazer o parser é o bodyParser
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
+server.use(allowCors)
 
 //Registrando a porta
 server.listen(port, function() {
